@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SocietyClubPortal.Models.SOC_REG_IND_POSTModel>
+
+    @{
+        ViewBag.Title = "View_Society";
+    }
+
+    @if (!Model.Any())
+    {
+        <h2>No Society Available to your range</h2>
+    }
+    else
+    {
+        <h2>Societies Details</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SOCIETY_NAME)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SOCIETY_DESCRIPTION)
+                </th>
+                <th></th>
+                <th></th>
+                <th>Inductions</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SOCIETY_NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SOCIETY_DESCRIPTION)
+                    </td>
+                    <td>
+                        @Html.ActionLink("View Events", "View_Events", "Student", new { scname = item.SOCIETY_NAME }, new { @onclick = "Myfunction();", id = item.SOCIETY_NAME })
+                    </td>
+                    <td>
+                        @Html.ActionLink("View_Hierarchy", "View_Hierarchy", "Student", new { scname = item.SOCIETY_NAME }, null)
+                    </td>
+                    <td>
+
+                        @if (!item.induction_status)
+                        {
+                            <p>Inductions are close right now</p>
+                        }
+                        else
+                        {
+                            if (item.post_status)
+                            {
+                                <p>(Cannot apply)You are already in the hierarchy</p>
+                            }
+                            else
+                            {
+                                if (item.registrationstatus)
+                                {
+                                    <p>You have already applied</p>
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Apply Now", "Register_Student", "Student", new { scname = item.SOCIETY_NAME }, null)
+                                }
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+
+    }
+    @*
+        <script src="~/Scripts/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function () {
+                var a = $(".induction_status").text();
+                console.log(a+a);
+                $(".induction_status").append(a);
+
+            });
+            function Myfunction() {
+                var datee = $("#my_date").val();
+                var x = $("#my_x").val();
+                var y = $("#my_y").val();
+                var obj = {
+                    DATE: datee,
+                    A: x,
+                    B: y
+                }
+                if ((x != "" && y != "") && datee != "") {
+                    $("#FromJson").empty();
+                    $("#FromJson").prop('disabled', false);
+                    $.ajax({
+                        method: 'POST',
+                        url: '/Society/abc',
+                        data: obj,
+                        dataType: "json",
+                        success: function (result) {
+                            $(result).each(function (index, item) {
+                                $("#FromJson").append($('<option/>', { value: item.V_ID, text: item.VNAME }));
+                            });
+                        },
+                        failure: function (result) {
+                            console.log(result);
+                        }
+                    });
+                }
+            }
+        </script>*@

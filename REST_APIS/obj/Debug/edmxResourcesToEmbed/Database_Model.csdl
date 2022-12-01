@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SocietyClubPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AVAILABILITY_OF_VENUE">
+    <Key>
+      <PropertyRef Name="DATED" />
+      <PropertyRef Name="START_TIME" />
+      <PropertyRef Name="VENUE_ID" />
+    </Key>
+    <Property Name="DATED" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="START_TIME" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="END_TIME" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="TIME_SLOT" Type="Int32" Nullable="false" />
+    <Property Name="IS_BOOK" Type="Boolean" Nullable="false" />
+    <Property Name="VENUE_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VENUE" Relationship="Self.FK__AVAILABIL__VENUE__3A81B327" FromRole="AVAILABILITY_OF_VENUE" ToRole="VENUE" />
+  </EntityType>
+  <EntityType Name="EVENT">
+    <Key>
+      <PropertyRef Name="NAME" />
+      <PropertyRef Name="SOCIETY_NAME" />
+    </Key>
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="SOCIETY_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SOCIETY" Relationship="Self.FK__EVENT__SOCIETY_N__3B75D760" FromRole="EVENT" ToRole="SOCIETY" />
+    <NavigationProperty Name="SCHEDULE" Relationship="Self.FK__SCHEDULE__403A8C7D" FromRole="EVENT" ToRole="SCHEDULE" />
+  </EntityType>
+  <EntityType Name="POST">
+    <Key>
+      <PropertyRef Name="NAME" />
+      <PropertyRef Name="SOCIETY_NAME" />
+    </Key>
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STUDENT_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="SOCIETY_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SOCIETY" Relationship="Self.FK__POST__SOCIETY_NA__3C69FB99" FromRole="POST" ToRole="SOCIETY" />
+    <NavigationProperty Name="student" Relationship="Self.FK_POST_POST" FromRole="POST" ToRole="student" />
+  </EntityType>
+  <EntityType Name="SCHEDULE">
+    <Key>
+      <PropertyRef Name="DATED" />
+      <PropertyRef Name="START_TIME" />
+      <PropertyRef Name="VENUE_ID" />
+    </Key>
+    <Property Name="DATED" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="START_TIME" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="END_TIME" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="VENUE_ID" Type="Int32" Nullable="false" />
+    <Property Name="EVENT_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SOCIETY_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EVENT" Relationship="Self.FK__SCHEDULE__403A8C7D" FromRole="SCHEDULE" ToRole="EVENT" />
+    <NavigationProperty Name="VENUE" Relationship="Self.FK__SCHEDULE__VENUE___412EB0B6" FromRole="SCHEDULE" ToRole="VENUE" />
+  </EntityType>
+  <EntityType Name="SOCIETY">
+    <Key>
+      <PropertyRef Name="NAME" />
+    </Key>
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL_LOGIN" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INDUCTION_STATUS" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EVENT" Relationship="Self.FK__EVENT__SOCIETY_N__3B75D760" FromRole="SOCIETY" ToRole="EVENT" />
+    <NavigationProperty Name="POST" Relationship="Self.FK__POST__SOCIETY_NA__3C69FB99" FromRole="SOCIETY" ToRole="POST" />
+    <NavigationProperty Name="SOCIETY_REGISTRATION" Relationship="Self.FK__SOCIETY_R__SOCIE__3E52440B" FromRole="SOCIETY" ToRole="SOCIETY_REGISTRATION" />
+  </EntityType>
+  <EntityType Name="SOCIETY_REGISTRATION">
+    <Key>
+      <PropertyRef Name="REGISTRATION_NO" />
+    </Key>
+    <Property Name="REGISTRATION_NO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STUDENT_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SOCIETY_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SOCIETY" Relationship="Self.FK__SOCIETY_R__SOCIE__3E52440B" FromRole="SOCIETY_REGISTRATION" ToRole="SOCIETY" />
+    <NavigationProperty Name="student" Relationship="Self.FK_SOCIETY_REGISTRATION_student" FromRole="SOCIETY_REGISTRATION" ToRole="student" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="depart" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_batch" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="current_sem" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contact_number" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="section" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cgpa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="POST" Relationship="Self.FK_POST_POST" FromRole="student" ToRole="POST" />
+    <NavigationProperty Name="SOCIETY_REGISTRATION" Relationship="Self.FK_SOCIETY_REGISTRATION_student" FromRole="student" ToRole="SOCIETY_REGISTRATION" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VENUE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AVAILABILITY_OF_VENUE" Relationship="Self.FK__AVAILABIL__VENUE__3A81B327" FromRole="VENUE" ToRole="AVAILABILITY_OF_VENUE" />
+    <NavigationProperty Name="SCHEDULE" Relationship="Self.FK__SCHEDULE__VENUE___412EB0B6" FromRole="VENUE" ToRole="SCHEDULE" />
+  </EntityType>
+  <Association Name="FK__AVAILABIL__VENUE__3A81B327">
+    <End Role="VENUE" Type="Self.VENUE" Multiplicity="1" />
+    <End Role="AVAILABILITY_OF_VENUE" Type="Self.AVAILABILITY_OF_VENUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENUE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AVAILABILITY_OF_VENUE">
+        <PropertyRef Name="VENUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EVENT__SOCIETY_N__3B75D760">
+    <End Role="SOCIETY" Type="Self.SOCIETY" Multiplicity="1" />
+    <End Role="EVENT" Type="Self.EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOCIETY">
+        <PropertyRef Name="NAME" />
+      </Principal>
+      <Dependent Role="EVENT">
+        <PropertyRef Name="SOCIETY_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SCHEDULE__403A8C7D">
+    <End Role="EVENT" Type="Self.EVENT" Multiplicity="1" />
+    <End Role="SCHEDULE" Type="Self.SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVENT">
+        <PropertyRef Name="NAME" />
+        <PropertyRef Name="SOCIETY_NAME" />
+      </Principal>
+      <Dependent Role="SCHEDULE">
+        <PropertyRef Name="EVENT_NAME" />
+        <PropertyRef Name="SOCIETY_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__POST__SOCIETY_NA__3C69FB99">
+    <End Role="SOCIETY" Type="Self.SOCIETY" Multiplicity="1" />
+    <End Role="POST" Type="Self.POST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOCIETY">
+        <PropertyRef Name="NAME" />
+      </Principal>
+      <Dependent Role="POST">
+        <PropertyRef Name="SOCIETY_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POST_POST">
+    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Role="POST" Type="Self.POST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="POST">
+        <PropertyRef Name="STUDENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SCHEDULE__VENUE___412EB0B6">
+    <End Role="VENUE" Type="Self.VENUE" Multiplicity="1" />
+    <End Role="SCHEDULE" Type="Self.SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENUE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SCHEDULE">
+        <PropertyRef Name="VENUE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SOCIETY_R__SOCIE__3E52440B">
+    <End Role="SOCIETY" Type="Self.SOCIETY" Multiplicity="1" />
+    <End Role="SOCIETY_REGISTRATION" Type="Self.SOCIETY_REGISTRATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOCIETY">
+        <PropertyRef Name="NAME" />
+      </Principal>
+      <Dependent Role="SOCIETY_REGISTRATION">
+        <PropertyRef Name="SOCIETY_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOCIETY_REGISTRATION_student">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="SOCIETY_REGISTRATION" Type="Self.SOCIETY_REGISTRATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOCIETY_REGISTRATION">
+        <PropertyRef Name="STUDENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SocietyClubPortalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AVAILABILITY_OF_VENUE" EntityType="Self.AVAILABILITY_OF_VENUE" />
+    <EntitySet Name="EVENT" EntityType="Self.EVENT" />
+    <EntitySet Name="POST" EntityType="Self.POST" />
+    <EntitySet Name="SCHEDULE" EntityType="Self.SCHEDULE" />
+    <EntitySet Name="SOCIETY" EntityType="Self.SOCIETY" />
+    <EntitySet Name="SOCIETY_REGISTRATION" EntityType="Self.SOCIETY_REGISTRATION" />
+    <EntitySet Name="student" EntityType="Self.student" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="VENUE" EntityType="Self.VENUE" />
+    <AssociationSet Name="FK__AVAILABIL__VENUE__3A81B327" Association="Self.FK__AVAILABIL__VENUE__3A81B327">
+      <End Role="VENUE" EntitySet="VENUE" />
+      <End Role="AVAILABILITY_OF_VENUE" EntitySet="AVAILABILITY_OF_VENUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EVENT__SOCIETY_N__3B75D760" Association="Self.FK__EVENT__SOCIETY_N__3B75D760">
+      <End Role="SOCIETY" EntitySet="SOCIETY" />
+      <End Role="EVENT" EntitySet="EVENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SCHEDULE__403A8C7D" Association="Self.FK__SCHEDULE__403A8C7D">
+      <End Role="EVENT" EntitySet="EVENT" />
+      <End Role="SCHEDULE" EntitySet="SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__POST__SOCIETY_NA__3C69FB99" Association="Self.FK__POST__SOCIETY_NA__3C69FB99">
+      <End Role="SOCIETY" EntitySet="SOCIETY" />
+      <End Role="POST" EntitySet="POST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POST_POST" Association="Self.FK_POST_POST">
+      <End Role="student" EntitySet="student" />
+      <End Role="POST" EntitySet="POST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SCHEDULE__VENUE___412EB0B6" Association="Self.FK__SCHEDULE__VENUE___412EB0B6">
+      <End Role="VENUE" EntitySet="VENUE" />
+      <End Role="SCHEDULE" EntitySet="SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SOCIETY_R__SOCIE__3E52440B" Association="Self.FK__SOCIETY_R__SOCIE__3E52440B">
+      <End Role="SOCIETY" EntitySet="SOCIETY" />
+      <End Role="SOCIETY_REGISTRATION" EntitySet="SOCIETY_REGISTRATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOCIETY_REGISTRATION_student" Association="Self.FK_SOCIETY_REGISTRATION_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="SOCIETY_REGISTRATION" EntitySet="SOCIETY_REGISTRATION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

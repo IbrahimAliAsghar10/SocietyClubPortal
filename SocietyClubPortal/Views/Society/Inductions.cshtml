@@ -1,0 +1,220 @@
+﻿@using SocietyClubPortal.Models;
+
+@model InductionsVM
+
+
+@{
+    ViewBag.Title = "Inductions";
+}
+@if (ViewBag.Inductions_Open)
+{
+    <br />
+    <h1>
+        Inductions are open right now
+    </h1>
+    <br />
+    <br />
+    <div>
+        @Html.ActionLink("Add new post", "Add_new_post", "Society", new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <br />
+    if (!Model.Unfilled_VM.Any() && !Model.filled_VM.Any())
+    {
+        <h2>You have an empty hierarchy</h2>
+    }
+    else
+    {
+        if (!Model.filled_VM.Any())
+        {
+            <h2>None of the posts are filled yet in your Hierarcchy</h2>
+        }
+        else
+        {
+            <h3>Your Designated Posts</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Post Name
+                    </th>
+                    <th>
+                        Student ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Batch
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.filled_VM)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.STUDENT_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.student.FNAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.student.STUDENT_BATCH)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Change Existing Student", "Change_Student_on_post", "Society", new { stid = item.STUDENT_ID, pname = item.NAME }, new { @class = "btn btn-primary" })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete Post", "Delete_Post", "Society", new { pname = item.NAME }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                }
+            </table>
+            <br />
+            <hr />
+            <br />
+            <br />
+
+        }
+
+        if (!Model.Unfilled_VM.Any())
+        {
+            <h2>You don't have any unfilled posts  yet</h2>
+        }
+        else
+        {
+            <h3>Your Non-Designated Posts</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Post Name
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.Unfilled_VM)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td style="tab-size:6"></td>
+                        <td style="tab-size:6"></td>
+                        <td style="tab-size:6"></td>
+                        <td style="tab-size:6">
+                            @Html.ActionLink("Add Student to the post", "Add_Student_on_post", "Society", new { pname = item.NAME }, new { @class = "btn btn-primary" })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete Post", "Delete_Post", "Society", new { pname = item.NAME }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+    @Html.ActionLink("Close Inductions", "Induction_status", "Society", new { status = false }, new { @class = "btn btn-primary" })
+}
+else
+{
+    <br />
+    <h1>
+        Inductions are close right now
+    </h1>
+    <br />
+    <br />
+    <div>
+        @Html.ActionLink("Add new post", "Add_new_post", "Society", new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <br />
+    <div>
+        @Html.ActionLink("Open Inductions", "Induction_status", "Society", new { status = true }, new { @class = "btn btn-primary" })
+    </div>
+    if (!Model.Unfilled_VM.Any() && !Model.filled_VM.Any())
+    {
+        <h2>You have an empty hierarchy</h2>
+    }
+    else
+    {
+        if (!Model.filled_VM.Any())
+        {
+            <h2>None of the posts are filled yet in your Hierarcchy</h2>
+        }
+        else
+        {
+            <h3>Your Designated Posts</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Post Name
+                    </th>
+                    <th>
+                        Student ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Batch
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.filled_VM)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.STUDENT_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.student.FNAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.student.STUDENT_BATCH)
+                        </td>
+                    </tr>
+                }
+            </table>
+            <br />
+            <hr />
+            <br />
+            <br />
+
+        }
+
+        if (!Model.Unfilled_VM.Any())
+        {
+            <h2>You don't have any unfilled posts  yet</h2>
+        }
+        else
+        {
+            <h3>Your Non-Designated Posts</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Post Name
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.Unfilled_VM)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    }
+}

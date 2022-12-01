@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SocietyClubPortal.Models.StudentModel>
+
+@{
+    ViewBag.Title = "Students_Data";
+}
+
+@if (!Model.Any())
+{
+    <h1>There is no Student</h1>
+}
+else
+{
+    <h2>Students_Data</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CONTACT_NUMBER)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GENDER)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DEPART)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CGPA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STUDENT_BATCH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CURRENT_SEM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SECTION)
+            </th>
+
+            @*<th></th>
+            <th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CONTACT_NUMBER)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GENDER)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DEPART)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CGPA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STUDENT_BATCH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CURRENT_SEM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SECTION)
+                </td>
+                @*<td>
+                    @Html.ActionLink("Remove", "delete_student", "Administrator", new { stid = item.ID }, new { @class = "btn btn-primary" })
+                </td>
+                <td>
+                    @Html.ActionLink("Update data", "Update_Student", "Administrator", new { stid = item.ID }, new { @class = "btn btn-primary" })
+                </td>*@
+            </tr>
+        }
+
+    </table>
+
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cea7a81e3ed84b309ebe413adc902026" Name="Diagram1">
+        <EntityTypeShape EntityType="SocietyClubPortalModel.AVAILABILITY_OF_VENUE" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.EVENT" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.POST" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.SCHEDULE" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.SOCIETY" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.SOCIETY_REGISTRATION" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.student" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.User" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocietyClubPortalModel.VENUE" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK__AVAILABIL__VENUE__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK__EVENT__SOCIETY_N__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK__SCHEDULE__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK__POST__SOCIETY_NA__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK_POST_POST" ManuallyRouted="false" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK__SCHEDULE__VENUE___412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK__SOCIETY_R__SOCIE__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SocietyClubPortalModel.FK_SOCIETY_REGISTRATION_student" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

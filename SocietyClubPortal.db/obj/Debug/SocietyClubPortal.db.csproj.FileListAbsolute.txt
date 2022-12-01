@@ -1,0 +1,14 @@
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\SocietyClubPortal.db.dll.config
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\SocietyClubPortal.db.dll
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\SocietyClubPortal.db.pdb
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\EntityFramework.dll
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\EntityFramework.SqlServer.dll
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\SocietyClubPortal.Models.dll
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\SocietyClubPortal.Models.pdb
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\EntityFramework.xml
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\bin\Debug\EntityFramework.SqlServer.xml
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\obj\Debug\SocietyClubPortal.db.csproj.AssemblyReference.cache
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\obj\Debug\SocietyClubPortal.db.csproj.CoreCompileInputs.cache
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\obj\Debug\SocietyClubPortal.db.csproj.CopyComplete
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\obj\Debug\SocietyClubPortal.db.dll
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.db\obj\Debug\SocietyClubPortal.db.pdb

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SocietyClubPortal.Models.Society_RegistrationModel>
+
+@{
+    ViewBag.Title = "Change_Student_on_post";
+}
+
+@if (!Model.Any())
+{
+    <h2>There is no student registered right now in your society for the inductions</h2>
+}
+else
+{
+    <h2>Select student for @ViewBag.postname post</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.REGISTRATION_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STUDENT_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SOCIETY_NAME)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGISTRATION_NO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STUDENT_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SOCIETY_NAME)
+                </td>
+                <td>
+                    @Html.ActionLink("Select", "Changing_Student_on_post", "Society", new { st_new = item.STUDENT_ID, reg_std = item.REGISTRATION_NO }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SocietyClubPortal.Models.ScheduleModel>
+
+@{
+    ViewBag.Title = "View_Events";
+}
+
+@if (!Model.Any())
+{
+    <h2>No Upcoming events of @ViewBag.Society_Name</h2>
+}
+else
+{
+    <h2>Upcoming events of @ViewBag.Society_Name</h2>
+    <br />
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EVENT_NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EVENT.DESCRIPTION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VENUE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATED)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.START_TIME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.END_TIME)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EVENT_NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EVENT.DESCRIPTION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VENUE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATED)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.START_TIME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.END_TIME)
+                </td>
+            </tr>
+        }
+    </table>
+}

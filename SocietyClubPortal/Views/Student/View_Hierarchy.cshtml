@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SocietyClubPortal.Models.PostModel>
+
+@{
+    ViewBag.Title = "View_Hierarchy";
+}
+
+@if (!Model.Any())
+{
+    <h2>Hierarchy is not designed yet</h2>
+}
+else
+{
+    <h2>Hierarchy of @ViewBag.scname</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.STUDENT_ID)
+            </th>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STUDENT_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.student.FNAME)
+                </td>
+            </tr>
+        }
+    </table>
+
+}

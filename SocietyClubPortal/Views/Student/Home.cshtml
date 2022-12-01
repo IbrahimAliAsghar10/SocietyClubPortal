@@ -1,0 +1,57 @@
+﻿@model SocietyClubPortal.Models.StudentModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+<center>
+    <div>
+        <hr />
+        <center>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ID)
+                </dd>
+
+                <dt>
+                    Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FNAME)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DEPART)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DEPART)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CGPA)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CGPA)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.STUDENT_BATCH)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.STUDENT_BATCH)
+                </dd>
+            </dl>
+        </center>
+    </div>
+    <div>
+        @Html.ActionLink("Change  Password", "Change_Password", "Student", new { username = User.Identity.Name }, new { @class = "btn btn-primary", style = "margin-left:500px" })
+    </div>
+</center>

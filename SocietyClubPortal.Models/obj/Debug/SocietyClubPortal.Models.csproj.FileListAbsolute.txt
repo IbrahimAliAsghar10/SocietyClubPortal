@@ -1,0 +1,6 @@
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.Models\bin\Debug\SocietyClubPortal.Models.dll
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.Models\bin\Debug\SocietyClubPortal.Models.pdb
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.Models\obj\Debug\SocietyClubPortal.Models.csproj.AssemblyReference.cache
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.Models\obj\Debug\SocietyClubPortal.Models.csproj.CoreCompileInputs.cache
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.Models\obj\Debug\SocietyClubPortal.Models.dll
+D:\Academic_Stuff\SEMESTER7\Information_Processing_Technique\Project\SocietyClubPortal\SocietyClubPortal.Models\obj\Debug\SocietyClubPortal.Models.pdb
